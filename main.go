@@ -16,6 +16,10 @@ func main() {
 
 	scanner := bufio.NewScanner(os.Stdin)
 
+	window := []windows.CheckWindow{
+		&windows.SetWindow{},
+	}
+
 	for {
 
 		var (
@@ -25,7 +29,7 @@ func main() {
 		)
 
 		fmt.Println(colorClear)
-		fmt.Printf("[Chosen window: %d]", selectedWindow)
+		fmt.Printf("[Selected window: %d]", selectedWindow)
 		fmt.Println("Choose available command:\n" +
 			"1. Set number of windows\n" +
 			"2. Set window choose location\n" +
@@ -46,17 +50,18 @@ func main() {
 				break
 			default:
 				number = StoI(changeStr)
-				window := make([]windows.Info, number)
+				// window := make([]windows.Info, number)
 			}
 		case "2":
 			if number == 0 {
 				fmt.Println("Error. Number of windows is not set.")
 				break
 			}
-			fmt.Println("Mouse position will be saved in 3 seconds.")
+			for i := 3; i > 0; i-- {
+				fmt.Printf("\nMouse position will be saved in %d seconds.", i)
+			}
 			robotgo.Sleep(3)
-			x, y := robotgo.GetMousePos()
-			window[selectedWindow].Set()
+			// x, y := robotgo.GetMousePos()
 		}
 		break
 	}
