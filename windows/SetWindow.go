@@ -1,6 +1,6 @@
 package windows
 
-type Info struct {
+type Info []struct {
 	ID int
 
 	ChooseWindowX int

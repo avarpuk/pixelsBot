@@ -16,8 +16,8 @@ func main() {
 
 	scanner := bufio.NewScanner(os.Stdin)
 
-	window := []windows.CheckWindow{
-		&windows.SetWindow{},
+	window := []windows.IntWindow{
+		&windows.Info{},
 	}
 
 	for {
