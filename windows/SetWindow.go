@@ -1,5 +1,7 @@
 package windows
 
+import "fmt"
+
 type Info struct {
 	ID int
 
@@ -15,6 +17,6 @@ type Info struct {
 	FirstFieldY int
 }
 
-func Set() {
-
+func (c *Info) Set() {
+	fmt.Println("hi")
 }

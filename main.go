@@ -21,9 +21,11 @@ func main() {
 		var (
 			inputStr, changeStr string
 			number              = 0
+			selectedWindow      int
 		)
 
 		fmt.Println(colorClear)
+		fmt.Printf("[Chosen window: %d]", selectedWindow)
 		fmt.Println("Choose available command:\n" +
 			"1. Set number of windows\n" +
 			"2. Set window choose location\n" +
@@ -54,7 +56,7 @@ func main() {
 			fmt.Println("Mouse position will be saved in 3 seconds.")
 			robotgo.Sleep(3)
 			x, y := robotgo.GetMousePos()
-			windows.Info{ChooseWindowX: x, ChooseWindowY: y}
+			window[selectedWindow].Set()
 		}
 		break
 	}
